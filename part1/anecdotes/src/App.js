@@ -25,11 +25,15 @@ const App = () => {
     console.log(number)
   } 
 
-  const vote = () => {
+  const castVote = () => {
     const newVotes = [...votes]
     newVotes[selected] += 1
     setVotes(newVotes)
     console.log(newVotes)
+  }
+
+  const mostPopular = () => {
+    return votes.indexOf(Math.max(...votes))
   }
 
   return (
@@ -38,8 +42,12 @@ const App = () => {
         <h1>Acnecdote of the day</h1>
         {anecdotes[selected]}
       </div>
-      <Button action={vote} text='vote' />
+      <Button action={castVote} text='vote' />
       <Button action={randomAnecdote} text='next anecdote' />
+      <div>
+        <h1>Anecdote with most votes</h1>
+        {anecdotes[mostPopular()]}
+      </div>
     </>
     
   )
