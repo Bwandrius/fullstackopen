@@ -27,11 +27,26 @@ const App = () => {
       <button onClick={handleGood}>good</button>
       <button onClick={handleNeutral}>neutral</button>
       <button onClick={handleBad}>bad</button>
+      <Statistics good={good} neutral={neutral} bad={bad} />
+    </div>
+  )
+}
+
+const Statistics = ({ good, neutral, bad }) => {
+  const all = good + neutral + bad
+  const average = ((good - bad) / all).toFixed(2) || 0
+  const positive = ((good / all) * 100).toFixed(2) || 0
+
+  return (
+    <>
       <h1>statistics</h1>
       <p>good: {good}</p>
       <p>neutral: {neutral}</p>
       <p>bad: {bad}</p>
-    </div>
+      <p>all: {all}</p>
+      <p>average: {average}</p>
+      <p>all: {positive}</p>
+    </>
   )
 }
 
