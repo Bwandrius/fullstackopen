@@ -18,14 +18,12 @@ const App = () => {
   const randomAnecdote = () => {
     const number = Math.floor(Math.random() * anecdotes.length)
     setSelected(number)
-    console.log(number)
   } 
 
   const castVote = () => {
     const newVotes = [...votes]
     newVotes[selected] += 1
     setVotes(newVotes)
-    console.log(newVotes)
   }
 
   const mostPopular = () => {
