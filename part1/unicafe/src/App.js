@@ -49,19 +49,25 @@ const Statistics = ({ good, neutral, bad }) => {
   }
 
   return (
-    <>
-      <StatisticLine text='good:' value={good} />
-      <StatisticLine text='neutral:' value={neutral} />
-      <StatisticLine text='bad:' value={bad} />
-      <StatisticLine text='all:' value={all} />
-      <StatisticLine text='average:' value={average} />
-      <StatisticLine text='positive:' value={positive} />
-    </>
+    <table>
+      <tbody>
+        <StatisticLine text='good:' value={good} />
+        <StatisticLine text='neutral:' value={neutral} />
+        <StatisticLine text='bad:' value={bad} />
+        <StatisticLine text='all:' value={all} />
+        <StatisticLine text='average:' value={average} />
+        <StatisticLine text='positive:' value={positive} />
+      </tbody>
+    </table>
   )
 }
 
 const StatisticLine = (props) => {
-  return <p>{props.text} {props.value}</p>
+  return (
+        <tr>
+          <td>{props.text} {props.value}</td>
+        </tr>
+  )
 }
 
 export default App
