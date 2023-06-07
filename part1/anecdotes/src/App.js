@@ -14,10 +14,6 @@ const App = () => {
    
   const [selected, setSelected] = useState(0)
   const [votes, setVotes] = useState(Array(anecdotes.length).fill(0))
-  
-  // const points = Array(anecdotes.length).fill(0)
-  // const copy = [...points]
-  // console.log(copy)
 
   const randomAnecdote = () => {
     const number = Math.floor(Math.random() * anecdotes.length)
@@ -38,18 +34,21 @@ const App = () => {
 
   return (
     <>
-      <div>
-        <h1>Acnecdote of the day</h1>
-        {anecdotes[selected]}
-      </div>
+      <Anecdote text='anecdote of the day' anecdote={anecdotes[selected]} />
       <Button action={castVote} text='vote' />
       <Button action={randomAnecdote} text='next anecdote' />
-      <div>
-        <h1>Anecdote with most votes</h1>
-        {anecdotes[mostPopular()]}
-      </div>
+      <Anecdote text='Anecdote with most votes' anecdote={anecdotes[mostPopular()]} />
     </>
     
+  )
+}
+
+const Anecdote = (props) => {
+  return (
+    <div>
+      <h1>{props.text}</h1>
+      {props.anecdote}
+    </div>
   )
 }
 
