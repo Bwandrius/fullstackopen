@@ -35,13 +35,16 @@ const App = () => {
   return (
     <>
       <div>
-      {anecdotes[selected]}
+        <h1>Acnecdote of the day</h1>
+        {anecdotes[selected]}
       </div>
-      <button onClick={vote}>vote</button>
-      <button onClick={randomAnecdote}>next anecdote</button>
+      <Button action={vote} text='vote' />
+      <Button action={randomAnecdote} text='next anecdote' />
     </>
     
   )
 }
+
+const Button = (props) => ( <button onClick={props.action}>{props.text}</button> )
 
 export default App
