@@ -1,18 +1,10 @@
-import Part from './Part'
+import Course from "./Course"
 
-const Content = ({ parts }) => {
+const Content = ({ courses }) => {
     return (
-      <>
-        <Part
-          part={parts[0]} 
-        />
-        <Part
-          part={parts[1]} 
-        />
-        <Part
-          part={parts[2]} 
-        />      
-      </>
+        <>
+            {courses.map(course => <Course key={course.id} course={course} />)}
+        </>
     )
 }
 
