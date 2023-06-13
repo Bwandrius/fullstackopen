@@ -12,20 +12,21 @@ const App = () => {
     }
   ]) 
   const [newName, setNewName] = useState('')
-  const [newNumber, setNewNumber] = useState(0)
+  const [newNumber, setNewNumber] = useState('')
 
   const addPerson = (event) => {
     event.preventDefault()
     const personObject = {
       name: newName,
-      // number: newNumber
+      number: newNumber
     }
     if (persons.find(person => person.name === personObject.name)) {
+      alert(`${personObject.name} is already added to phonebook`)
+    } else {
+      setPersons(persons.concat(personObject))
       setNewName('')
-      return alert(`${personObject.name} is already added to phonebook`)
+      setNewNumber('')
     }
-    setPersons(persons.concat(personObject))
-    setNewName('')
   }
 
   const handlePersonChange = (event) => {
@@ -44,7 +45,7 @@ const App = () => {
           name: <input value={newName} onChange={handlePersonChange}/>
         </div>
         <div>
-          number: <input value={newName} onChange={handleNumberChange}/>
+          number: <input value={newNumber} onChange={handleNumberChange}/>
         </div>
         <div>
           <button type="submit">add</button>
