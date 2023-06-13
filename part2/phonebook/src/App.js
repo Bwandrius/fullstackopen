@@ -12,7 +12,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [searchInput, setSearchInput] = useState('')
-  const [showAll, setShowAll] = useState(true)
+  const [shownPersons, setShownPersons] = useState(defaultPersons)
 
   const addPerson = (event) => {
     event.preventDefault()
@@ -41,13 +41,16 @@ const App = () => {
   const handleSearch = (event) => {
     event.preventDefault()
     setSearchInput(event.target.value)
+    const searchValue = event.target.value.toLowerCase()
+    const filteredPersons = persons.filter(person => person.name.toLowerCase().includes(searchValue))
+    setShownPersons(filteredPersons)
   }
 
-  if (searchInput.length > 0) {
-    persons.filter(person => {
-      return person.name.match(searchInput)
-    })
-  }
+  // if (searchInput.length > 0) {
+  //   persons.filter(person => {
+  //     return person.name.match(searchInput)
+  //   })
+  // }
 
   return (
     <div>
