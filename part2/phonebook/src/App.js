@@ -46,12 +46,6 @@ const App = () => {
     setShownPersons(filteredPersons)
   }
 
-  // if (searchInput.length > 0) {
-  //   persons.filter(person => {
-  //     return person.name.match(searchInput)
-  //   })
-  // }
-
   return (
     <div>
       <h2>Phonebook</h2>
@@ -71,7 +65,7 @@ const App = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      {persons.map(person => 
+      {shownPersons.map(person => 
         <p key={person.id}>{person.name} - {person.number}</p>  
       )}
     </div>
