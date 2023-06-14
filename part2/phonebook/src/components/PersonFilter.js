@@ -1,8 +1,8 @@
 const PersonFilter = ({ value, onChange }) => {
     return (
-      <div>
-        filter shown with: <input type="text" value={value} onChange={onChange}/>
-      </div>
+        <div>
+            filter shown with: <input type="text" value={value} onChange={onChange}/>
+        </div>
     )
 }
 
