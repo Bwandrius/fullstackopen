@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import PersonForm from './components/PersonForm'
 
 const App = () => {
   const defaultPersons = [
@@ -24,7 +25,9 @@ const App = () => {
     if (persons.find(person => person.name === personObject.name)) {
       alert(`${personObject.name} is already added to phonebook`)
     } else {
-      setPersons(persons.concat(personObject))
+      const newPersons = persons.concat(personObject)
+      setPersons(newPersons)
+      setShownPersons(newPersons)
       setNewName('')
       setNewNumber('')
     }
@@ -53,7 +56,15 @@ const App = () => {
         filter shown with: <input type="text" value={searchInput} onChange={handleSearch}/>
       </div>
       <h2>add a new</h2>
-      <form onSubmit={addPerson}>
+
+      <PersonForm 
+        addPerson={addPerson} newName={newName} 
+        handlePersonChange={handlePersonChange} 
+        newNumber={newNumber} 
+        handleNumberChange={handleNumberChange} 
+      />
+
+      {/* <form onSubmit={addPerson}>
         <div>
           name: <input value={newName} onChange={handlePersonChange}/>
         </div>
@@ -63,7 +74,7 @@ const App = () => {
         <div>
           <button type="submit">add</button>
         </div>
-      </form>
+      </form> */}
       <h2>Numbers</h2>
       {shownPersons.map(person => 
         <p key={person.id}>{person.name} - {person.number}</p>  
