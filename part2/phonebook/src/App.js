@@ -56,25 +56,12 @@ const App = () => {
         filter shown with: <input type="text" value={searchInput} onChange={handleSearch}/>
       </div>
       <h2>add a new</h2>
-
       <PersonForm 
         addPerson={addPerson} newName={newName} 
         handlePersonChange={handlePersonChange} 
         newNumber={newNumber} 
         handleNumberChange={handleNumberChange} 
       />
-
-      {/* <form onSubmit={addPerson}>
-        <div>
-          name: <input value={newName} onChange={handlePersonChange}/>
-        </div>
-        <div>
-          number: <input value={newNumber} onChange={handleNumberChange}/>
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form> */}
       <h2>Numbers</h2>
       {shownPersons.map(person => 
         <p key={person.id}>{person.name} - {person.number}</p>  
